@@ -27,18 +27,17 @@ pipeline {
                     echo "Now Archiving."
                     archiveArtifacts artifacts: '**/*.war'
                 }
-                
             }
-            stage('Test'){
-                steps {
-                    sh 'mvn test'
-                }
+        }
+        stage('Test'){
+            steps {
+                sh 'mvn test'
             }
-            stage('Checkstyle Analysis'){
-                steps {
-                    sh 'mvn checkstyle:checkstyle'
-                                       
-                }
+        }
+        stage('Checkstyle Analysis'){
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
         }
     }
 }
